@@ -77,7 +77,7 @@ int isBalanced(char *exp)
 }
 int main()
 {
-    char *exp = "{([{a+b]*[c-d])/e}";
+    char *exp = "{}{}[]({})";
 
     printf("%d ", isBalanced(exp));
 

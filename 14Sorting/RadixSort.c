@@ -42,11 +42,13 @@ void radixSort(int A[],int n)
             }    
             else
             {
-                while( (bins[(A[i]/k)%10])->next!=NULL )
+                //Don't change directly on bin pointer value, instead do any change using temporary pointer p.
+                struct Node *p=bins[(A[i]/k)%10];
+                while( p->next!=NULL )
                 {    
-                    (bins[(A[i]/k)%10]) = (bins[(A[i]/k)%10])->next;
+                    p = p->next;
                 }
-                (bins[(A[i]/k)%10])->next=temp;
+                p->next=temp;
             }
         }
         k*=10;
@@ -64,9 +66,6 @@ void radixSort(int A[],int n)
             else
                 ++j;
         }
-        for(i=0;i<n;i++)
-            printf("%d ",A[i]);
-        printf("\n");    
 
         max/=10;
     }
